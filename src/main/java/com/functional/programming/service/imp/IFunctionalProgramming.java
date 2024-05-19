@@ -17,5 +17,7 @@ public interface IFunctionalProgramming {
     List<CoursesEntity> printCoursesByNumberOfLetters(int number);
 
     List<Integer> printSquareOfEvenNumbersInListFunctional(List<Integer> numbers);
+    List<Integer> printCubesOfOddNumbersInListFunctional(List<Integer> numbers);
+    List<String> printNumberOfCharactersForEachCourse();
 
 }

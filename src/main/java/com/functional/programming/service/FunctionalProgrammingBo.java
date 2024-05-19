@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 @Slf4j
@@ -35,9 +36,6 @@ public class FunctionalProgrammingBo  implements IFunctionalProgramming {
 
         return filteredCourses;
     }
-
-
-
 
     @Override
     public String printAllNumbersInListFunctional(List<Integer> numbers) {
@@ -72,6 +70,42 @@ public class FunctionalProgrammingBo  implements IFunctionalProgramming {
         log.info("Execution time of printSquareOfEvenNumbersInListFunctional method: " + executionTime + "ms");
 
         return squareNumbers;
+    }
+
+    @Override
+    public List<Integer> printCubesOfOddNumbersInListFunctional(List<Integer> numbers) {
+        log.info("Starting printCubesOfOddNumbersInListFunctional method");
+        long startTime = System.currentTimeMillis();
+
+        List<Integer> cubeOfOddNumbersList = numbers.stream()
+                .filter(FunctionalProgrammingBo::isOddNumber)
+                .map(FunctionalProgrammingBo::cubeNumber).toList();
+
+        cubeOfOddNumbersList.forEach(FunctionalProgrammingBo::printer);
+
+        long executionTime = System.currentTimeMillis() - startTime;
+
+        log.info("Execution time of printCubesOfOddNumbersInListFunctional method: " + executionTime + "ms");
+        return cubeOfOddNumbersList;
+    }
+
+    @Override
+    public List<String> printNumberOfCharactersForEachCourse() {
+        log.info("Starting printNumberOfCharactersForEachCourse method");
+        long startTime = System.currentTimeMillis();
+
+        List<CoursesEntity> courses = coursesDao.findAll();
+
+        List<String> courseLength = courses.stream().map(course ->
+                course.getName() + " : " + course.getName().length())
+                .toList();
+
+        courseLength.forEach(FunctionalProgrammingBo::printer);
+
+        long executionTime = System.currentTimeMillis() - startTime;
+
+        log.info("Execution time of printNumberOfCharactersForEachCourse method: " + executionTime + "ms");
+        return courseLength;
     }
 
     @Override
@@ -129,8 +163,16 @@ public class FunctionalProgrammingBo  implements IFunctionalProgramming {
         return (number % 2) == 0;
     }
 
+    private static boolean isOddNumber(int number){
+        return (number % 2) != 0;
+    }
+
     private static int squareNumber(int number){
         return number * number;
+    }
+
+    private static int cubeNumber(int number){
+        return number * number * number;
     }
 
     private static void printer(Object value){

@@ -30,6 +30,11 @@ public class FunctionalProgrammingController {
         return ResponseEntity.ok(functionalProgramming.printAllCourses());
     }
 
+    @GetMapping("courses-length")
+    public ResponseEntity<?> geNumberOfCharactersForEachCourse (){
+        return ResponseEntity.ok(functionalProgramming.printNumberOfCharactersForEachCourse());
+    }
+
     @GetMapping("courses-filtered")//TODO: improve this implementation
     public ResponseEntity<?> getCoursesFilterByWord(@RequestParam(name = "word", required = false) String word,
                                                     @RequestParam(name = "length", required = false) Integer length){
@@ -42,6 +47,11 @@ public class FunctionalProgrammingController {
     @GetMapping("print-square-numbers")
     public ResponseEntity<?> getPrintSquareOfEvenNumbersInListFunctional(@RequestBody List<Integer> numbers){
         return ResponseEntity.ok(functionalProgramming.printSquareOfEvenNumbersInListFunctional(numbers));
+    }
+
+    @GetMapping("print-cube-numbers")
+    public ResponseEntity<?> getPrintCubeOfOddNumbersInListFunctional(@RequestBody List<Integer> numbers){
+        return ResponseEntity.ok(functionalProgramming.printCubesOfOddNumbersInListFunctional(numbers));
     }
 
 }
