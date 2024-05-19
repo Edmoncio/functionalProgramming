@@ -6,11 +6,42 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet id="1" author="Edmoncio">
-        <createTable tableName="my_table">
-            <column name="id" type="int">
+        <createTable tableName="Courses">
+            <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="Name" type="Varchar"/>
         </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="Edmoncio">
+        <insert tableName="Courses">
+            <column name="Name" value="Spring" />
+        </insert>
+        <insert tableName="Courses">
+            <column name="Name" value="Spring Boot" />
+        </insert>
+        <insert tableName="Courses">
+            <column name="Name" value="API" />
+        </insert>
+        <insert tableName="Courses">
+            <column name="Name" value="Microservices" />
+        </insert>
+        <insert tableName="Courses">
+            <column name="Name" value="AWS" />
+        </insert>
+        <insert tableName="Courses">
+            <column name="Name" value="PCF" />
+        </insert>
+        <insert tableName="Courses">
+            <column name="Name" value="Azure" />
+        </insert>
+        <insert tableName="Courses">
+            <column name="Name" value="Docker" />
+        </insert>
+        <insert tableName="Courses">
+            <column name="Name" value="Kubernetes" />
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

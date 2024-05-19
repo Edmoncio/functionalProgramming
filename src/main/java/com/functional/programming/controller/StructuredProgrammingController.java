@@ -3,10 +3,7 @@ package com.functional.programming.controller;
 import com.functional.programming.service.imp.IStructuredProgramming;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +19,12 @@ public class StructuredProgrammingController {
         String result = structuredProgramming.PrintAllNumbersInListStructured(numbers);
         return ResponseEntity.ok(result);
     }
+
+    @GetMapping("print-even-numbers")
+    public ResponseEntity<?> printEvenNumbersOfTheList (@RequestBody List<Integer> numbers){
+        return ResponseEntity.ok(structuredProgramming.printEvenNumbersOfTheListStructured(numbers));
+    }
+
+
 
 }
