@@ -27,12 +27,23 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools'
 
 	//For Swagger documentation
-	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+//	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
+	// to Document the APIs TODO: check why I added the documentation Above
+//	implementation 'io.springfox:springfox-swagger2:3.0.0'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+
+	implementation 'io.springfox:springfox-data-rest:3.0.0'
+
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 
 	//H2 database dependency for in-memory database and local testing
 	runtimeOnly 'com.h2database:h2'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+
+
 }
 
 tasks.named('test') {

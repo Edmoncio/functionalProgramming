@@ -1,6 +1,8 @@
 package com.functional.programming.controller;
 
+import com.functional.programming.entities.CourseEntity;
 import com.functional.programming.service.imp.IFunctionalProgramming;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +27,9 @@ public class FunctionalProgrammingController {
         return ResponseEntity.ok(functionalProgramming.printEvenNumbersOfTheListFunctional(numbers));
     }
 
+    @Operation(summary = "Get all curses", description = "Get the list of all the courses store in the database")
     @GetMapping("courses")
-    public ResponseEntity<?> getAllCourses (){
+    public ResponseEntity<List<CourseEntity>> getAllCourses (){
         return ResponseEntity.ok(functionalProgramming.printAllCourses());
     }
 
@@ -36,8 +39,8 @@ public class FunctionalProgrammingController {
     }
 
     @GetMapping("courses-filtered")//TODO: improve this implementation
-    public ResponseEntity<?> getCoursesFilterByWord(@RequestParam(name = "word", required = false) String word,
-                                                    @RequestParam(name = "length", required = false) Integer length){
+    public ResponseEntity<List<CourseEntity>> getCoursesFilterByWord(@RequestParam(name = "word", required = false) String word,
+                                                                     @RequestParam(name = "length", required = false) Integer length){
 
         if (word != null)
             return ResponseEntity.ok(functionalProgramming.printCoursesFilterByWord(word));

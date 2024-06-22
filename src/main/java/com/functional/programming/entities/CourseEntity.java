@@ -1,9 +1,8 @@
 package com.functional.programming.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,12 +14,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "Courses")
-public class CoursesEntity {
+@Schema(description = "Course model", name = "Course")
+public class CourseEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "Name")
+    @Schema(description = "Name of the course")
+    @NotNull
     private String name;
 
 }

@@ -1,14 +1,13 @@
 package com.functional.programming.service;
 
 import com.functional.programming.dao.CoursesDao;
-import com.functional.programming.entities.CoursesEntity;
+import com.functional.programming.entities.CourseEntity;
 import com.functional.programming.service.imp.IFunctionalProgramming;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 @Service
 @Slf4j
@@ -22,13 +21,13 @@ public class FunctionalProgrammingBo  implements IFunctionalProgramming {
     }
 
     @Override
-    public List<CoursesEntity> printCoursesByNumberOfLetters(int number) {
+    public List<CourseEntity> printCoursesByNumberOfLetters(int number) {
         log.info("Starting printCoursesByNumberOfLetters method");
         long startTime = System.currentTimeMillis();
 
-        List<CoursesEntity> courses = coursesDao.findAll();
+        List<CourseEntity> courses = coursesDao.findAll();
 
-        List<CoursesEntity> filteredCourses = courses.stream().filter(course -> course.getName().length() >= number).toList();
+        List<CourseEntity> filteredCourses = courses.stream().filter(course -> course.getName().length() >= number).toList();
 
         long executionTime = System.currentTimeMillis() - startTime;
 
@@ -94,7 +93,7 @@ public class FunctionalProgrammingBo  implements IFunctionalProgramming {
         log.info("Starting printNumberOfCharactersForEachCourse method");
         long startTime = System.currentTimeMillis();
 
-        List<CoursesEntity> courses = coursesDao.findAll();
+        List<CourseEntity> courses = coursesDao.findAll();
 
         List<String> courseLength = courses.stream().map(course ->
                 course.getName() + " : " + course.getName().length())
@@ -129,11 +128,11 @@ public class FunctionalProgrammingBo  implements IFunctionalProgramming {
     }
 
     @Override
-    public List<CoursesEntity> printAllCourses() {
+    public List<CourseEntity> printAllCourses() {
         log.info("Starting printAllCourses method");
         long startTime = System.currentTimeMillis();
 
-        List<CoursesEntity> courses = coursesDao.findAll();
+        List<CourseEntity> courses = coursesDao.findAll();
 
         courses.forEach(FunctionalProgrammingBo::printer);
 
@@ -144,13 +143,13 @@ public class FunctionalProgrammingBo  implements IFunctionalProgramming {
     }
 
     @Override
-    public List<CoursesEntity> printCoursesFilterByWord(String word) {
+    public List<CourseEntity> printCoursesFilterByWord(String word) {
         log.info("Starting printCoursesFilterByWord method");
         long startTime = System.currentTimeMillis();
 
-        List<CoursesEntity> courses = coursesDao.findAll();
+        List<CourseEntity> courses = coursesDao.findAll();
 
-        List<CoursesEntity> coursesFiltered = courses.stream().filter(course -> course.getName().contains(word)).toList();
+        List<CourseEntity> coursesFiltered = courses.stream().filter(course -> course.getName().contains(word)).toList();
 
         long executionTime = System.currentTimeMillis() - startTime;
 

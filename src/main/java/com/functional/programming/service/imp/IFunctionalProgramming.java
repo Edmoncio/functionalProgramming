@@ -1,6 +1,6 @@
 package com.functional.programming.service.imp;
 
-import com.functional.programming.entities.CoursesEntity;
+import com.functional.programming.entities.CourseEntity;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ public interface IFunctionalProgramming {
 
     List<Integer> printEvenNumbersOfTheListFunctional(List<Integer> numbers);
 
-    List<CoursesEntity> printAllCourses();
+    List<CourseEntity> printAllCourses();
 
-    List<CoursesEntity> printCoursesFilterByWord(String word);
+    List<CourseEntity> printCoursesFilterByWord(String word);
 
-    List<CoursesEntity> printCoursesByNumberOfLetters(int number);
+    List<CourseEntity> printCoursesByNumberOfLetters(int number);
 
     List<Integer> printSquareOfEvenNumbersInListFunctional(List<Integer> numbers);
     List<Integer> printCubesOfOddNumbersInListFunctional(List<Integer> numbers);
