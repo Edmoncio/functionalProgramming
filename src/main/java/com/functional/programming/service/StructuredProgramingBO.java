@@ -22,8 +22,8 @@ public class StructuredProgramingBO implements IStructuredProgramming {
 
 
     @Override
-    public String PrintAllNumbersInListStructured(List<Integer> numbers) {
-        log.info("Starting PrintAllNumbersInListStructured method");
+    public String printAllNumbersInListStructured(List<Integer> numbers) {
+        log.info("Starting printAllNumbersInListStructured method");
         long startTime = System.currentTimeMillis();
 
         for (Integer number: numbers) {
@@ -33,9 +33,9 @@ public class StructuredProgramingBO implements IStructuredProgramming {
 
         long executionTime = System.currentTimeMillis() - startTime;
 
-        log.info("Execution time of PrintAllNumbersInListStructured method: " + executionTime + "ms");
+        log.info("Execution time of printAllNumbersInListStructured method: " + executionTime + "ms");
 
-        return "Execution time of PrintAllNumbersInListStructured method: " + executionTime + "ms";
+        return "Execution time of printAllNumbersInListStructured method: " + executionTime + "ms";
     }
 
     @Override
@@ -58,5 +58,24 @@ public class StructuredProgramingBO implements IStructuredProgramming {
 
         return filteredList;
     }
+
+    @Override
+    public Integer addListStructured(List<Integer> numbers) {
+        log.info("Starting addListStructured method ");
+        long startTime = System.currentTimeMillis();
+
+        Integer total = 0;
+
+        for (Integer number: numbers){
+            total += number;
+        }
+
+        long executionTime = System.currentTimeMillis() - startTime;
+
+        log.info("Execution time of addListStructured method: " + executionTime + "ms");
+
+        return total;
+    }
+
 
 }

@@ -16,13 +16,18 @@ public class StructuredProgrammingController {
 
     @PostMapping("print-numbers")
     public ResponseEntity<?> printAllNumbers(@RequestBody List<Integer> numbers){
-        String result = structuredProgramming.PrintAllNumbersInListStructured(numbers);
+        String result = structuredProgramming.printAllNumbersInListStructured(numbers);
         return ResponseEntity.ok(result);
     }
 
     @GetMapping("print-even-numbers")
     public ResponseEntity<?> printEvenNumbersOfTheList (@RequestBody List<Integer> numbers){
         return ResponseEntity.ok(structuredProgramming.printEvenNumbersOfTheListStructured(numbers));
+    }
+
+    @GetMapping("add-all-numbers")
+    public ResponseEntity<Integer> addAllNumbersStructured (@RequestBody List<Integer> numbers){
+        return ResponseEntity.ok(structuredProgramming.addListStructured(numbers));
     }
 
 

@@ -4,10 +4,11 @@ import java.util.List;
 
 public interface IStructuredProgramming {
 
-    String PrintAllNumbersInListStructured(List<Integer> numbers);
+    String printAllNumbersInListStructured(List<Integer> numbers);
 
     List<Integer> printEvenNumbersOfTheListStructured(List<Integer> numbers);
 
+    Integer addListStructured(List<Integer> numbers);
 
 
 }
