@@ -39,6 +39,7 @@ dependencies {
 
 	//H2 database dependency for in-memory database and local testing
 	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.postgresql:postgresql'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 

@@ -3,7 +3,7 @@ spring:
     name: functionalProgramming
   h2:
     console:
-      enabled: true
+      enabled: false
       path: /h2/db
   datasource:
     url: jdbc:postgresql://localhost:5432/test
@@ -15,5 +15,3 @@ spring:
     show-sql: true
   liquibase:
     change-log: classpath:changelog/db.changelog-master.xml
-
-
