@@ -6,4 +6,4 @@ jobs:
     steps:
      - name: checkout repository code
        uses: actions/checkout@v4
-     - run: echo "$(cat push_event_has_triggerd_test.txt)
+     - run: echo "$(cat push_event_has_triggerd_test.txt)"
