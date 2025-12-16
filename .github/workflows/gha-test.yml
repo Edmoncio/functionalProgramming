@@ -1,0 +1,9 @@
+name: gha-test
+on: push
+jobs: 
+  print-message-test: 
+    runs-on: ubuntu-latest
+    steps:
+     - name: checkout repository code
+       uses: actions/checkout@v4
+     - run: echo "$(cat push_event_has_triggerd_test.txt)
